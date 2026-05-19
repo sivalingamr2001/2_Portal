@@ -2,6 +2,7 @@
 using Application.Implementation;
 using Application.Interfaces;
 using Application.Services;
+using Domain.Interfaces;
 using Domain.Interfaces.Repositories;
 using Infrastructure.Persistence;
 using Infrastructure.Repository;

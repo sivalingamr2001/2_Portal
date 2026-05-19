@@ -1,5 +1,5 @@
-using Application.Interfaces;
 using Domain.Enums;
+using Domain.Interfaces;
 using Domain.Interfaces.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;

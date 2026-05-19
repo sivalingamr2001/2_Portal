@@ -4,6 +4,7 @@ using Application.DTOs.Audit;
 using Application.Interfaces;
 using Domain.Entities;
 using Domain.Enums;
+using Domain.Interfaces;
 using Domain.Interfaces.Repositories;
 using Microsoft.Extensions.Logging;
 
