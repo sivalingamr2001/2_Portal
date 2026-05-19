@@ -1,10 +1,11 @@
 ﻿using Application.Contracts;
 using Application.Implementation;
-using Domain.Interfaces;
+using Application.Interfaces;
+using Application.Services;
+using Domain.Interfaces.Repositories;
 using Infrastructure.Persistence;
 using Infrastructure.Repository;
 using Microsoft.EntityFrameworkCore;
-using Pomelo.EntityFrameworkCore.MySql;
 
 namespace API
 {
@@ -43,6 +44,11 @@ namespace API
             this IServiceCollection services)
         {
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IAccessRequestService, AccessRequestService>();
+            services.AddScoped<IDepartmentService, DepartmentService>();
+            services.AddScoped<IFolderMappingService, FolderMappingService>();
+            services.AddScoped<IAuditService, AuditService>();
+            services.AddScoped<INotificationService, NotificationService>();
 
             return services;
         }

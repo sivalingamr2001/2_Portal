@@ -17,5 +17,5 @@ public sealed class DepartmentEntity
 
     [Required]
     [Column("hod_id")]
-    public int HodId { get; set; }
+    public int HodId { get; set; } //UserId of the HOD for this department not employee id
 }

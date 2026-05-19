@@ -2,8 +2,8 @@
 using Application.DTOs.Request;
 using Application.DTOs.Response;
 using Dapper;
-using Domain.DomainEnums; // Contains UserRole enum
 using Domain.Entities;
+using Domain.Enums;
 using Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -157,6 +157,62 @@ public class UserService(ILogger<UserService> logger, IConfiguration configurati
             role,
             cmplUser.DepartmentId
         );
+    }
+
+    //create a new method for GetByRoleAsync to fetch users by their role from the local database and then enrich with CMPL data
+    public async Task<IEnumerable<UserResponseDto>> GetByRoleAsync(UserRole role, CancellationToken cancellationToken)
+    {
+        var localUsers = await dbContext.Users
+            .AsNoTracking()
+            .Where(u => u.UserRole == role)
+            .Select(u => new { u.UserId, u.UserRole })
+            .ToListAsync(cancellationToken);
+        var userIds = localUsers.Select(u => u.UserId).ToList();
+        if (userIds.Count == 0)
+        {
+            return [];
+        }
+        var connectionString = GetCmplConnectionString();
+        if (string.IsNullOrWhiteSpace(connectionString))
+        {
+            logger.LogError("Missing MySqlConnectionString_Cmpl configuration inside GetByRoleAsync.");
+            return [];
+        }
+        const string cmplSql = @"
+            SELECT 
+                CMPL_USER_ID as UserId, 
+                emp_id as EmployeeId, 
+                CMPL_USER_NAME as UserName, 
+                MAIL_ID as Email,
+                MOB_NO as Mobile,
+                DEPT_ID as DepartmentId
+            FROM it_inventory_db_new.jan_complaint_login
+            WHERE deleted_flag = 0 AND CMPL_USER_ID IN @ids";
+        IEnumerable<CmplUserRecord> cmplUsers;
+        try
+        {
+            using var connection = new MySqlConnection(connectionString);
+            cmplUsers = await connection.QueryAsync<CmplUserRecord>(
+                new CommandDefinition(cmplSql, new { ids = userIds }, cancellationToken: cancellationToken));
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, "Failed to retrieve batch data list from CMPL master database table for GetByRoleAsync.");
+            return [];
+        }
+        var combinedList = from local in localUsers
+                           join cmpl in cmplUsers on local.UserId equals cmpl.UserId
+                           select new UserResponseDto(
+                               cmpl.UserId,
+                               cmpl.EmployeeId ?? string.Empty,
+                               cmpl.UserName ?? string.Empty,
+                               cmpl.Email ?? string.Empty,
+                               cmpl.Mobile,
+                               cmpl.Location,
+                               local.UserRole,
+                               cmpl.DepartmentId
+                           );
+        return combinedList;
     }
 
     // ADDED: Implementation to fetch all users from CMPL DB and overlay local role records efficiently

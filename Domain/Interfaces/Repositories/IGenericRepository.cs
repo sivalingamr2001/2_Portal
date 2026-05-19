@@ -1,4 +1,4 @@
-﻿namespace Domain.Interfaces;
+﻿namespace Domain.Interfaces.Repositories;
 
 // Base domain model constraint
 public abstract class AggregateRoot<TId>

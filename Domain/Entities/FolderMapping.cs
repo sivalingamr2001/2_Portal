@@ -15,12 +15,9 @@ public sealed class FolderMappingEntity : BaseAuditableEntity
     [Required]
     [Column("folder_name")]
     public string FolderName { get; set; } = null!;
-
-    // Primary/Secondary HOD Fields (Matched to TS Record)
     [Column("primary_hod_id")] public string? PrimaryHodId { get; set; }
     [Column("primary_hod_name")] public string? PrimaryHodName { get; set; }
     [Column("primary_hod_email")] public string? PrimaryHodEmail { get; set; }
-
     [Column("secondary_hod_id")] public string? SecondaryHodId { get; set; }
     [Column("secondary_hod_name")] public string? SecondaryHodName { get; set; }
     [Column("secondary_hod_email")] public string? SecondaryHodEmail { get; set; }
