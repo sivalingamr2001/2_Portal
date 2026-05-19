@@ -1,4 +1,6 @@
-﻿namespace Application.DTOs.Response;
+﻿using Domain.DomainEnums;
+
+namespace Application.DTOs.Response;
 
 /// <summary>
 /// Example User Response DTO.
@@ -8,21 +10,22 @@ public record UserResponseDto(
     string EmployeeId,
     string UserName,
     string Email,
-    string? PhoneNumber,
-    int? DeptId,
+    object? PhoneNumber,
     string? Location,
-    string? Role,
+    UserRole? Role,
     int? DepartmentId
 );
 
-public sealed record CmplUserRecord(
-    int UserId,
-    string? EmployeeId,
-    string? UserName,
-    int? DeptId,
-    string? Email = null,
-    string? Mobile = null,
-    string? Location = null,
-    string? Role = null,
-    int? DepartmentId = null
-);
+// CHANGED: Converted to a standard class to bypass strict constructor positional restrictions in Dapper
+public sealed class CmplUserRecord
+{
+    public int UserId { get; set; }
+    public string? EmployeeId { get; set; }
+    public string? UserName { get; set; }
+    public int? DeptId { get; set; }
+    public string? Email { get; set; }
+    public object? Mobile { get; set; } 
+    public string? Location { get; set; }
+    public UserRole? Role { get; set; }
+    public int? DepartmentId { get; set; }
+}

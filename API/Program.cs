@@ -1,7 +1,5 @@
-
+using Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
-using Infrastructure.Persistence.Entities;
-using Domain.Entities;
 
 namespace API
 {
@@ -26,7 +24,8 @@ namespace API
             builder.Services.AddInfrastructure(builder.Configuration);
             builder.Services.AddApplication();
 
-            builder.Services.AddOpenApi();
+            // FIXED: Pure Swagger JSON specification generator setup
+            builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
@@ -38,25 +37,30 @@ namespace API
                 dbContext.Database.Migrate();
             }
 
+            // FIXED PIPELINE ROUTING ORDER: Enable interactive UI panels in development environment
             if (app.Environment.IsDevelopment())
             {
-                app.MapOpenApi();
-                app.UseSwagger();
-                app.UseSwaggerUI();
+                app.UseSwagger(); // Generates the default file schema at /swagger/v1/swagger.json
+                app.UseSwaggerUI(options =>
+                {
+                    options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+                    options.RoutePrefix = "swagger"; // Standard entry address layout
+                });
             }
 
-            app.UseDefaultFiles();
             app.UseMiddleware<GlobalExceptionHandlingMiddleware>();
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
-
-            app.MapFallbackToFile("index.html");
-
 
             app.UseHttpsRedirection();
             app.UseCors("AllowAll");
             app.UseAuthorization();
+
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+
             app.MapControllers();
+
+            // MapFallbackToFile must be the very last statement to prevent 404 interception blocks
+            app.MapFallbackToFile("index.html");
 
             app.Run();
         }

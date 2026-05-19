@@ -38,5 +38,18 @@ namespace API.Controllers
 
             return Ok(new ApiResponseDto<UserResponseDto>(true, "User retrieved successfully", response));
         }
+
+        [HttpGet("all-users")]
+        public async Task<IActionResult> GetAllEmployeesAsync(CancellationToken cancellationToken)
+        {
+            var response = await userService.GetAllEmployeesAsync(cancellationToken);
+
+            if (response == null || !response.Any())
+            {
+                return NotFound(new ErrorResponseDto("NotFound", "Users not found or error during retrieval"));
+            }
+
+            return Ok(new ApiResponseDto<IEnumerable<UserResponseDto>>(true, "Users retrieved successfully", response));
+        }
     }
 }

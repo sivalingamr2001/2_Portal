@@ -1,10 +1,10 @@
 ﻿using Application.Contracts;
-using Application.Services;
-using Domain.Entities;
+using Application.Implementation;
 using Domain.Interfaces;
 using Infrastructure.Persistence;
 using Infrastructure.Repository;
 using Microsoft.EntityFrameworkCore;
+using Pomelo.EntityFrameworkCore.MySql;
 
 namespace API
 {
@@ -13,34 +13,27 @@ namespace API
         public static IServiceCollection AddInfrastructure(
             this IServiceCollection services, IConfiguration configuration)
         {
-            var mysqlConnectionString = configuration.GetConnectionString("MySqlConnectionString");
-            var fallbackConnectionString = configuration.GetConnectionString("DatabaseConnection");
-            var connectionString = mysqlConnectionString ?? fallbackConnectionString;
-            var dbProvider = configuration.GetSection("Database:Provider").Value ?? "Sqlite";
+            var dbProvider = configuration["Database:Provider"] ?? "Sqlite";
+            var mySqlConnectionString = configuration.GetConnectionString("MySqlConnectionString");
+            var sqliteConnectionString = configuration.GetConnectionString("SqliteConnectionString");
 
             services.AddDbContext<AppDbContext>(options =>
             {
-                if (dbProvider.Equals("MySql", StringComparison.OrdinalIgnoreCase))
-                {
-                    if (string.IsNullOrWhiteSpace(connectionString))
-                    {
-                        throw new InvalidOperationException("MySqlConnectionString or DatabaseConnection must be configured when using the MySql provider.");
-                    }
+                var isMySql = string.Equals(dbProvider, "MySql", StringComparison.OrdinalIgnoreCase);
+                var serverVersion = ServerVersion.Parse("8.0.0-mysql");
 
-                    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
-                }
-                else
+                if (isMySql)
                 {
-                    if (string.IsNullOrWhiteSpace(connectionString))
-                    {
-                        throw new InvalidOperationException("DatabaseConnection must be configured when using the SQLite provider.");
-                    }
+                    options.UseMySql(
+                        mySqlConnectionString,
+                        serverVersion);
 
-                    options.UseSqlite(connectionString);
+                    return;
                 }
+
+                options.UseSqlite(sqliteConnectionString);
             });
 
-            services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             return services;
@@ -55,4 +48,3 @@ namespace API
         }
     }
 }
-

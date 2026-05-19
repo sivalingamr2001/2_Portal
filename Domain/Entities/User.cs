@@ -14,16 +14,6 @@ namespace Domain.Entities
         [Column("user_id")]
         public int UserId { get; set; }
 
-        [Column("employee_id")]
-        public string? EmployeeId { get; set; }
-
-        [Column("user_name")]
-        public string? UserName { get; set; }
-
-        [Required]
-        [Column("email")]
-        public string Email { get; set; } = null!;
-
         [Column("user_role")]
         public UserRole? UserRole { get; set; }
     }
