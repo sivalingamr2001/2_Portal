@@ -1,7 +1,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Web.Domain.Common;
 using Web.Domain.Enums;
-using Web.Domain.Events; // Assuming your custom event classes live here
 
 namespace Web.Domain.Entities;
 
@@ -13,12 +12,6 @@ namespace Web.Domain.Entities;
 [Table("Jan_Access_Request")]
 public class AccessRequest : AuditableEntity
 {
-    // Local storage collection for domain events
-    private readonly List<object> _domainEvents = new();
-
-    [NotMapped] // Prevents EF Core from trying to create a table column for events
-    public IReadOnlyCollection<object> DomainEvents => _domainEvents.AsReadOnly();
-
     [Column("request_number")]
     public string RequestNumber { get; private set; } = string.Empty;
 
@@ -66,9 +59,6 @@ public class AccessRequest : AuditableEntity
             ));
         }
 
-        // Add event to local collection instead of calling an external method
-        request.AddDomainEvent(new AccessRequestCreatedEvent(request.RequestNumber, requesterId));
-
         return request;
     }
 
@@ -85,9 +75,6 @@ public class AccessRequest : AuditableEntity
         {
             item.UpdateStatus(RequestStatus.HodApproved, approvedBy);
         }
-
-        // Add event to local collection
-        AddDomainEvent(new AccessRequestStatusChangedEvent(RequestNumber, RequestStatus.HodApproved));
     }
 
     public void RejectByHod(string rejectedBy)
@@ -119,9 +106,6 @@ public class AccessRequest : AuditableEntity
         {
             item.UpdateStatus(RequestStatus.OperatorApproved, approvedBy);
         }
-
-        // Add event to local collection
-        AddDomainEvent(new AccessRequestStatusChangedEvent(RequestNumber, RequestStatus.OperatorApproved));
     }
 
     public void RejectByIt(string rejectedBy)
@@ -157,10 +141,6 @@ public class AccessRequest : AuditableEntity
             item.UpdateStatus(RequestStatus.OperatorRejected, cancelledBy);
         }
     }
-
-    // Helper tracking logic methods
-    public void AddDomainEvent(object domainEvent) => _domainEvents.Add(domainEvent);
-    public void ClearDomainEvents() => _domainEvents.Clear();
 
     private void UpdateModificationDetails(string user)
     {

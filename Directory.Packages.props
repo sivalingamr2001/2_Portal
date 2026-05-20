@@ -10,10 +10,7 @@
     <PackageVersion Include="Pomelo.EntityFrameworkCore.MySql" Version="9.0.0" />
     <PackageVersion Include="Dapper" Version="2.1.72" />
     <PackageVersion Include="MySqlConnector" Version="2.4.0" />
-
-    <!-- CQRS & Validation -->
-    <PackageVersion Include="MediatR" Version="12.4.1" />
-    <PackageVersion Include="FluentValidation.DependencyInjectionExtensions" Version="11.11.0" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.2" />
 
     <!-- Routing -->
     <PackageVersion Include="Carter" Version="8.2.1" />

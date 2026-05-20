@@ -9,12 +9,12 @@ namespace Web.Infrastructure.Repositories;
 /// </summary>
 public interface IUnitOfWork : IAsyncDisposable
 {
-    IRepository<Users> Users { get; }
-    IRepository<Department> Departments { get; }
-    IRepository<AccessRequest> AccessRequests { get; }
-    IRepository<AccessApproval> AccessApprovals { get; }
-    IRepository<AccessDetail> AccessDetails { get; }
-    IRepository<AuditLog> AuditLogs { get; }
+    IEFRepository<Users> Users { get; }
+    IEFRepository<Department> Departments { get; }
+    IEFRepository<AccessRequest> AccessRequests { get; }
+    IEFRepository<AccessApproval> AccessApprovals { get; }
+    IEFRepository<AccessDetail> AccessDetails { get; }
+    IEFRepository<AuditLog> AuditLogs { get; }
     IDapperRepository Dapper { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);

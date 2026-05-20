@@ -1,51 +1,83 @@
+using System.Data;
 using Dapper;
-using Microsoft.Extensions.Logging;
+using Microsoft.Data.Sqlite;
 using MySqlConnector;
 using Polly;
-using System.Data;
-using System.Text;
+using Web.Shared.Helpers;
 
 namespace Web.Infrastructure.Repositories;
 
 /// <summary>
-/// Dapper repository with:
-/// - Polly retry (transient fault tolerance)
-/// - Cancellation token propagation via CommandFlags
-/// - Bulk insert via multi-row VALUES construction
-/// - Stored procedure support
+/// Dapper repository supporting dynamic multi-database connection overrides with:
+/// - Polly retry logic (transient fault tolerance on MySQL channels)
+/// - Safe structural fallback routing directly via ConnectionStrings helper
+/// - Comprehensive cancellation token propagation parameters
 /// </summary>
 public sealed class DapperRepository : IDapperRepository
 {
-    private readonly string _connectionString;
+    private readonly ConnectionStrings _connectionStrings;
     private readonly ILogger<DapperRepository> _logger;
-    private readonly IAsyncPolicy _retryPolicy;
+    private readonly IAsyncPolicy _mySqlRetryPolicy;
 
-    public DapperRepository(string connectionString, ILogger<DapperRepository> logger)
+    public DapperRepository(ConnectionStrings connectionStrings, ILogger<DapperRepository> logger)
     {
-        _connectionString = connectionString;
+        _connectionStrings = connectionStrings;
         _logger = logger;
 
-        // Retry 3 times with exponential back-off for transient DB errors
-        _retryPolicy = Policy
+        // Establish transient fault retry rule profiles for live MySQL database engine contexts
+        _mySqlRetryPolicy = Policy
             .Handle<MySqlException>(ex => IsTransient(ex))
             .WaitAndRetryAsync(
                 retryCount: 3,
                 sleepDurationProvider: attempt => TimeSpan.FromMilliseconds(200 * Math.Pow(2, attempt)),
                 onRetry: (ex, delay, attempt, _) =>
-                    _logger.LogWarning(ex, "Dapper retry {Attempt} after {Delay}ms", attempt, delay.TotalMilliseconds));
+                    _logger.LogWarning(ex, "Dapper database execution retry {Attempt} after {Delay}ms", attempt, delay.TotalMilliseconds));
     }
 
-    private IDbConnection CreateConnection() => new MySqlConnection(_connectionString);
+    /// <summary>
+    /// Helper resolver to dynamically produce the correct IDbConnection string engine footprint.
+    /// Falls back to using ConnectionStrings.Default if an explicit override parameter isn't passed.
+    /// </summary>
+    private IDbConnection GetConnection(string? overrideConnectionString)
+    {
+        var targetConnectionString = !string.IsNullOrWhiteSpace(overrideConnectionString)
+            ? overrideConnectionString
+            : _connectionStrings.Default;
+
+        var isSqlite = targetConnectionString.TrimStart().StartsWith("Data Source=", StringComparison.OrdinalIgnoreCase);
+
+        return isSqlite
+            ? new SqliteConnection(targetConnectionString)
+            : new MySqlConnection(targetConnectionString);
+    }
+
+    /// <summary>
+    /// Executes an execution policy wrapper block targeting MySQL engine context errors safely.
+    /// Skips active network routing delays entirely if the input string evaluates to an inline SQLite context.
+    /// </summary>
+    private async Task<TResult> ExecuteWithPolicyAsync<TResult>(string? connectionString, Func<Task<TResult>> operation)
+    {
+        var activeString = !string.IsNullOrWhiteSpace(connectionString) ? connectionString : _connectionStrings.Default;
+        var isSqlite = activeString.TrimStart().StartsWith("Data Source=", StringComparison.OrdinalIgnoreCase);
+
+        if (isSqlite)
+        {
+            return await operation();
+        }
+
+        return await _mySqlRetryPolicy.ExecuteAsync(operation);
+    }
 
     public async Task<IReadOnlyList<T>> QueryAsync<T>(
         string sql,
         object? param = null,
+        string? connectionString = null,
         IDbTransaction? transaction = null,
         CancellationToken cancellationToken = default)
     {
-        return await _retryPolicy.ExecuteAsync(async () =>
+        return await ExecuteWithPolicyAsync(connectionString, async () =>
         {
-            using var connection = CreateConnection();
+            using var connection = GetConnection(connectionString);
             var cmd = new CommandDefinition(sql, param, transaction, cancellationToken: cancellationToken);
             var result = await connection.QueryAsync<T>(cmd);
             return result.AsList().AsReadOnly();
@@ -55,12 +87,13 @@ public sealed class DapperRepository : IDapperRepository
     public async Task<T?> QuerySingleOrDefaultAsync<T>(
         string sql,
         object? param = null,
+        string? connectionString = null,
         IDbTransaction? transaction = null,
         CancellationToken cancellationToken = default)
     {
-        return await _retryPolicy.ExecuteAsync(async () =>
+        return await ExecuteWithPolicyAsync(connectionString, async () =>
         {
-            using var connection = CreateConnection();
+            using var connection = GetConnection(connectionString);
             var cmd = new CommandDefinition(sql, param, transaction, cancellationToken: cancellationToken);
             return await connection.QuerySingleOrDefaultAsync<T>(cmd);
         });
@@ -69,12 +102,13 @@ public sealed class DapperRepository : IDapperRepository
     public async Task<int> ExecuteAsync(
         string sql,
         object? param = null,
+        string? connectionString = null,
         IDbTransaction? transaction = null,
         CancellationToken cancellationToken = default)
     {
-        return await _retryPolicy.ExecuteAsync(async () =>
+        return await ExecuteWithPolicyAsync(connectionString, async () =>
         {
-            using var connection = CreateConnection();
+            using var connection = GetConnection(connectionString);
             var cmd = new CommandDefinition(sql, param, transaction, cancellationToken: cancellationToken);
             return await connection.ExecuteAsync(cmd);
         });
@@ -83,12 +117,13 @@ public sealed class DapperRepository : IDapperRepository
     public async Task<T?> ExecuteScalarAsync<T>(
         string sql,
         object? param = null,
+        string? connectionString = null,
         IDbTransaction? transaction = null,
         CancellationToken cancellationToken = default)
     {
-        return await _retryPolicy.ExecuteAsync(async () =>
+        return await ExecuteWithPolicyAsync(connectionString, async () =>
         {
-            using var connection = CreateConnection();
+            using var connection = GetConnection(connectionString);
             var cmd = new CommandDefinition(sql, param, transaction, cancellationToken: cancellationToken);
             return await connection.ExecuteScalarAsync<T>(cmd);
         });
@@ -97,11 +132,12 @@ public sealed class DapperRepository : IDapperRepository
     public async Task<IReadOnlyList<T>> QueryStoredProcedureAsync<T>(
         string storedProcedureName,
         object? param = null,
+        string? connectionString = null,
         CancellationToken cancellationToken = default)
     {
-        return await _retryPolicy.ExecuteAsync(async () =>
+        return await ExecuteWithPolicyAsync(connectionString, async () =>
         {
-            using var connection = CreateConnection();
+            using var connection = GetConnection(connectionString);
             var cmd = new CommandDefinition(
                 storedProcedureName,
                 param,
@@ -115,11 +151,12 @@ public sealed class DapperRepository : IDapperRepository
     public async Task<int> ExecuteStoredProcedureAsync(
         string storedProcedureName,
         object? param = null,
+        string? connectionString = null,
         CancellationToken cancellationToken = default)
     {
-        return await _retryPolicy.ExecuteAsync(async () =>
+        return await ExecuteWithPolicyAsync(connectionString, async () =>
         {
-            using var connection = CreateConnection();
+            using var connection = GetConnection(connectionString);
             var cmd = new CommandDefinition(
                 storedProcedureName,
                 param,
@@ -129,14 +166,10 @@ public sealed class DapperRepository : IDapperRepository
         });
     }
 
-    /// <summary>
-    /// Batched bulk insert using parameterized multi-row VALUES.
-    /// Batch size of 500 balances memory vs round-trips.
-    /// Uses reflection + property cache for zero-allocation on subsequent calls.
-    /// </summary>
     public async Task BulkInsertAsync<T>(
         string tableName,
         IEnumerable<T> entities,
+        string? connectionString = null,
         CancellationToken cancellationToken = default)
     {
         const int batchSize = 500;
@@ -167,11 +200,12 @@ public sealed class DapperRepository : IDapperRepository
 
             var sql = $"INSERT INTO `{tableName}` ({columns}) VALUES {string.Join(", ", valueRows)}";
 
-            await _retryPolicy.ExecuteAsync(async () =>
+            await ExecuteWithPolicyAsync(connectionString, async () =>
             {
-                using var connection = CreateConnection();
+                using var connection = GetConnection(connectionString);
                 var cmd = new CommandDefinition(sql, parameters, cancellationToken: cancellationToken);
                 await connection.ExecuteAsync(cmd);
+                return true;
             });
         }
     }
@@ -180,9 +214,10 @@ public sealed class DapperRepository : IDapperRepository
         string countSql,
         string dataSql,
         object? param = null,
+        string? connectionString = null,
         CancellationToken cancellationToken = default)
     {
-        using var connection = CreateConnection();
+        using var connection = GetConnection(connectionString);
         connection.Open();
 
         var countCmd = new CommandDefinition(countSql, param, cancellationToken: cancellationToken);

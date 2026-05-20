@@ -14,10 +14,7 @@
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" />
     <PackageReference Include="Dapper" />
     <PackageReference Include="MySqlConnector" />
-
-    <!-- CQRS & Validation -->
-    <PackageReference Include="MediatR" />
-    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" />
 
     <!-- Routing -->
     <PackageReference Include="Carter" />
@@ -38,6 +35,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="External Sources\**\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Domain\Enums\" />
+    <Folder Include="logs\" />
   </ItemGroup>
 </Project>

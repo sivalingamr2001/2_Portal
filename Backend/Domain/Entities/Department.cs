@@ -8,14 +8,18 @@ namespace Web.Domain.Entities;
 public sealed class Department : AuditableEntity
 {
     [Required]
+    [Column("dept_code")]
+    public string DepartmentCode { get; set; } = string.Empty;
+
+    [Required]
     [Column("dept_name")]
-    public string DepartmentName { get; set; } = string.Empty;
+    public string Name { get; set; } = string.Empty;
 
     [Required]
     [Column("hod_id")]
     public int HodId { get; set; }
 
-    public ICollection<Employee> Employees { get; private set; } = [];
+    public ICollection<Users> Employees { get; private set; } = [];
 
     private Department() { }
 

@@ -7,17 +7,11 @@ namespace Web.Domain.Entities;
 /// <summary>
 /// Users are the primary actors — requesters, HODs, IT approvers.
 /// </summary>
-[Table("jan_users")]
+[Table("jan_portal_users")]
 public sealed class Users : AuditableEntity
 {
     [Column("user_id")]
     public int UserId { get; set; }
-
-    [Column("employee_id")]
-    public string? EmployeeId { get; set; }
-
-    [Column("email")]
-    public string? Email { get; set; }
 
     [Column("user_role")]
     public UserRole? UserRole { get; set; }
@@ -29,38 +23,31 @@ public sealed class Users : AuditableEntity
     public Department Department { get; private set; } = null!;
     public ICollection<AccessRequest> AccessRequests { get; private set; } = [];
 
-    private Employee() { }
+    private Users() { }
 
-    public static Employee Create(
-        string employeeCode,
-        string fullName,
-        string email,
-        string role,
-        int departmentId,
+    public static Users Create(
+        int userId,
+        UserRole role,
+        string location,
         string createdBy)
     {
-        ArgumentException.ThrowIfNullOrWhiteSpace(employeeCode);
-        ArgumentException.ThrowIfNullOrWhiteSpace(fullName);
-        ArgumentException.ThrowIfNullOrWhiteSpace(email);
-
-        var employee = new Employee
+        var user = new Users
         {
-            EmployeeCode = employeeCode.Trim().ToUpperInvariant(),
-            FullName = fullName.Trim(),
-            Email = email.Trim().ToLowerInvariant(),
-            Role = role.Trim().ToLowerInvariant(),
-            DepartmentId = departmentId,
+            UserId = userId,
+            UserRole = role,
+            Location = location.Trim(),
             CreatedAt = DateTime.UtcNow,
             CreatedBy = createdBy
         };
 
-        return employee;
+        return user;
     }
 
-    public void UpdateProfile(string fullName, string email, string modifiedBy)
+    public void UpdateProfile(int userId, UserRole userRole,string location, string modifiedBy)
     {
-        FullName = fullName.Trim();
-        Email = email.Trim().ToLowerInvariant();
+        UserId = userId;
+        UserRole = userRole;
+        location = location.Trim();
         ModifiedAt = DateTime.UtcNow;
         ModifiedBy = modifiedBy;
     }

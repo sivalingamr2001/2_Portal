@@ -17,12 +17,12 @@ public sealed class UnitOfWork : IUnitOfWork
     private IDbContextTransaction? _transaction;
     private bool _disposed;
 
-    private IRepository<Users>? _users;
-    private IRepository<Department>? _departments;
-    private IRepository<AccessRequest>? _accessRequests;
-    private IRepository<AccessApproval>? _accessApprovals;
-    private IRepository<AccessDetail>? _accessDetails;
-    private IRepository<AuditLog>? _auditLogs;
+    private IEFRepository<Users>? _users;
+    private IEFRepository<Department>? _departments;
+    private IEFRepository<AccessRequest>? _accessRequests;
+    private IEFRepository<AccessApproval>? _accessApprovals;
+    private IEFRepository<AccessDetail>? _accessDetails;
+    private IEFRepository<AuditLog>? _auditLogs;
 
     public UnitOfWork(
         ApplicationDbContext context,
@@ -34,12 +34,12 @@ public sealed class UnitOfWork : IUnitOfWork
         _logger = logger;
     }
 
-    public IRepository<Users> Employees => _users ??= new EfRepository<Users>(_context);
-    public IRepository<Department> Departments => _departments ??= new EfRepository<Department>(_context);
-    public IRepository<AccessRequest> AccessRequests => _accessRequests ??= new EfRepository<AccessRequest>(_context);
-    public IRepository<AccessApproval> AccessApprovals => _accessApprovals ??= new EfRepository<AccessApproval>(_context);
-    public IRepository<AccessDetail> AccessDetails => _accessDetails ??= new EfRepository<AccessDetail>(_context);
-    public IRepository<AuditLog> AuditLogs => _auditLogs ??= new EfRepository<AuditLog>(_context);
+    public IEFRepository<Users> Users => _users ??= new EfRepository<Users>(_context);
+    public IEFRepository<Department> Departments => _departments ??= new EfRepository<Department>(_context);
+    public IEFRepository<AccessRequest> AccessRequests => _accessRequests ??= new EfRepository<AccessRequest>(_context);
+    public IEFRepository<AccessApproval> AccessApprovals => _accessApprovals ??= new EfRepository<AccessApproval>(_context);
+    public IEFRepository<AccessDetail> AccessDetails => _accessDetails ??= new EfRepository<AccessDetail>(_context);
+    public IEFRepository<AuditLog> AuditLogs => _auditLogs ??= new EfRepository<AuditLog>(_context);
     public IDapperRepository Dapper => _dapper;
     public bool HasActiveTransaction => _transaction is not null;
 

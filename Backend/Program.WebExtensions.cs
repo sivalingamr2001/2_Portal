@@ -36,16 +36,13 @@ public static class WebExtensions
 
         services.AddCarter();
 
-        services.AddCors(options =>
-        {
-            options.AddPolicy("DefaultCors", policy =>
+        services.AddCors(options => options.AddPolicy("DefaultCors", policy =>
             {
                 policy
                     .WithOrigins(configuration.GetSection("Cors:AllowedOrigins").Get<string[]>() ?? [])
                     .AllowAnyHeader()
                     .AllowAnyMethod();
-            });
-        });
+            }));
 
         services.AddHealthChecks()
             .AddDbContextCheck<ApplicationDbContext>("database");

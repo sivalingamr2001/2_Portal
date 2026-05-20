@@ -8,7 +8,7 @@ namespace Web.Infrastructure.Repositories;
 /// Write repository contract. Deliberately separate from read (IReadRepository).
 /// Read/write separation allows swapping read side to Dapper or even a read replica.
 /// </summary>
-public interface IRepository<T> where T : BaseEntity
+public interface IEFRepository<T> where T : BaseEntity
 {
     Task<T?> GetByIdAsync(int id, CancellationToken cancellationToken = default);
     Task<T?> GetByIdWithIncludesAsync(int id, CancellationToken cancellationToken = default, params Expression<Func<T, object>>[] includes);

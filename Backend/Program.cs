@@ -19,9 +19,8 @@ builder.Services.AddWebServices(builder.Configuration);
 
 var app = builder.Build();
 
-// ─── Middleware Pipeline ───────────────────────────────────────────────────────
-app.UseWebMiddleware();
+await app.UseDatabaseInitializationAsync();
 
-// ─── Database Migrate & Seed ──────────────────────────────────────────────────
+app.UseWebMiddleware();
 
 app.Run();
