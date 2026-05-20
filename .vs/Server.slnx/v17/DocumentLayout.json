@@ -1,0 +1,613 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\New Workspace\\Backup\\Backend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C8CC92F9-C58D-47F4-84CF-4F04E2720C55}|Infrastructure\\Infrastructure.csproj|d:\\new workspace\\backup\\backend\\infrastructure\\backgroundjobs\\accessexpiryjob.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8CC92F9-C58D-47F4-84CF-4F04E2720C55}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\backgroundjobs\\accessexpiryjob.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CBFA08EA-AECE-205F-7B85-326FD0B81BAD}|API\\API.csproj|d:\\new workspace\\backup\\backend\\api\\program.dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CBFA08EA-AECE-205F-7B85-326FD0B81BAD}|API\\API.csproj|solutionrelative:api\\program.dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|d:\\new workspace\\backup\\backend\\application\\services\\notificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|solutionrelative:application\\services\\notificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|d:\\new workspace\\backup\\backend\\application\\services\\accessrequestservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|solutionrelative:application\\services\\accessrequestservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{468FF4E0-0B58-4E68-B60B-0BB5CD3C17A6}|Domain\\Domain.csproj|d:\\new workspace\\backup\\backend\\domain\\entities\\fileaccessrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{468FF4E0-0B58-4E68-B60B-0BB5CD3C17A6}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\fileaccessrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|d:\\new workspace\\backup\\backend\\application\\dtos\\audit\\accessreqauditdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|solutionrelative:application\\dtos\\audit\\accessreqauditdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|d:\\new workspace\\backup\\backend\\application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|solutionrelative:application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|d:\\new workspace\\backup\\backend\\application\\contracts\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|solutionrelative:application\\contracts\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|d:\\new workspace\\backup\\backend\\application\\services\\departmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|solutionrelative:application\\services\\departmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|d:\\new workspace\\backup\\backend\\application\\services\\foldermappingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|solutionrelative:application\\services\\foldermappingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|d:\\new workspace\\backup\\backend\\application\\dtos\\accessrequest\\approvalactiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|solutionrelative:application\\dtos\\accessrequest\\approvalactiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{468FF4E0-0B58-4E68-B60B-0BB5CD3C17A6}|Domain\\Domain.csproj|d:\\new workspace\\backup\\backend\\domain\\interfaces\\repositories\\iaccessrequestrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{468FF4E0-0B58-4E68-B60B-0BB5CD3C17A6}|Domain\\Domain.csproj|solutionrelative:domain\\interfaces\\repositories\\iaccessrequestrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|d:\\new workspace\\backup\\backend\\application\\interfaces\\idepartmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|solutionrelative:application\\interfaces\\idepartmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|d:\\new workspace\\backup\\backend\\application\\interfaces\\ifoldermappingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|solutionrelative:application\\interfaces\\ifoldermappingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|d:\\new workspace\\backup\\backend\\application\\services\\auditservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|solutionrelative:application\\services\\auditservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|d:\\new workspace\\backup\\backend\\application\\interfaces\\iauditservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|solutionrelative:application\\interfaces\\iauditservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|d:\\new workspace\\backup\\backend\\application\\interfaces\\iaccessrequestservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|solutionrelative:application\\interfaces\\iaccessrequestservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8CC92F9-C58D-47F4-84CF-4F04E2720C55}|Infrastructure\\Infrastructure.csproj|d:\\new workspace\\backup\\backend\\infrastructure\\repository\\accessrequestrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8CC92F9-C58D-47F4-84CF-4F04E2720C55}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repository\\accessrequestrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|d:\\new workspace\\backup\\backend\\application\\dtos\\accessrequest\\createaccessrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|solutionrelative:application\\dtos\\accessrequest\\createaccessrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|d:\\new workspace\\backup\\backend\\application\\dtos\\accessrequest\\accessrequestresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|solutionrelative:application\\dtos\\accessrequest\\accessrequestresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8CC92F9-C58D-47F4-84CF-4F04E2720C55}|Infrastructure\\Infrastructure.csproj|d:\\new workspace\\backup\\backend\\infrastructure\\repository\\foldermappingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8CC92F9-C58D-47F4-84CF-4F04E2720C55}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repository\\foldermappingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8CC92F9-C58D-47F4-84CF-4F04E2720C55}|Infrastructure\\Infrastructure.csproj|d:\\new workspace\\backup\\backend\\infrastructure\\repository\\departmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8CC92F9-C58D-47F4-84CF-4F04E2720C55}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repository\\departmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{468FF4E0-0B58-4E68-B60B-0BB5CD3C17A6}|Domain\\Domain.csproj|d:\\new workspace\\backup\\backend\\domain\\interfaces\\repositories\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{468FF4E0-0B58-4E68-B60B-0BB5CD3C17A6}|Domain\\Domain.csproj|solutionrelative:domain\\interfaces\\repositories\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|d:\\new workspace\\backup\\backend\\application\\common\\result.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|solutionrelative:application\\common\\result.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{468FF4E0-0B58-4E68-B60B-0BB5CD3C17A6}|Domain\\Domain.csproj|d:\\new workspace\\backup\\backend\\domain\\entities\\baseauditableentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{468FF4E0-0B58-4E68-B60B-0BB5CD3C17A6}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\baseauditableentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|d:\\new workspace\\backup\\backend\\application\\application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|solutionrelative:application\\application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{468FF4E0-0B58-4E68-B60B-0BB5CD3C17A6}|Domain\\Domain.csproj|d:\\new workspace\\backup\\backend\\domain\\interfaces\\repositories\\ifoldermappingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{468FF4E0-0B58-4E68-B60B-0BB5CD3C17A6}|Domain\\Domain.csproj|solutionrelative:domain\\interfaces\\repositories\\ifoldermappingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{468FF4E0-0B58-4E68-B60B-0BB5CD3C17A6}|Domain\\Domain.csproj|d:\\new workspace\\backup\\backend\\domain\\interfaces\\repositories\\idepartmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{468FF4E0-0B58-4E68-B60B-0BB5CD3C17A6}|Domain\\Domain.csproj|solutionrelative:domain\\interfaces\\repositories\\idepartmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{468FF4E0-0B58-4E68-B60B-0BB5CD3C17A6}|Domain\\Domain.csproj|d:\\new workspace\\backup\\backend\\domain\\domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{468FF4E0-0B58-4E68-B60B-0BB5CD3C17A6}|Domain\\Domain.csproj|solutionrelative:domain\\domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|d:\\new workspace\\backup\\backend\\application\\dtos\\foldermapping\\foldermappingdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|solutionrelative:application\\dtos\\foldermapping\\foldermappingdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8CC92F9-C58D-47F4-84CF-4F04E2720C55}|Infrastructure\\Infrastructure.csproj|d:\\new workspace\\backup\\backend\\infrastructure\\infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{C8CC92F9-C58D-47F4-84CF-4F04E2720C55}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|d:\\new workspace\\backup\\backend\\application\\common\\pagedresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5698D3C8-28F0-4B89-BA2C-16F096C3D3C6}|Application\\Application.csproj|solutionrelative:application\\common\\pagedresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{468FF4E0-0B58-4E68-B60B-0BB5CD3C17A6}|Domain\\Domain.csproj|d:\\new workspace\\backup\\backend\\domain\\enums\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{468FF4E0-0B58-4E68-B60B-0BB5CD3C17A6}|Domain\\Domain.csproj|solutionrelative:domain\\enums\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{468FF4E0-0B58-4E68-B60B-0BB5CD3C17A6}|Domain\\Domain.csproj|d:\\new workspace\\backup\\backend\\domain\\entities\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{468FF4E0-0B58-4E68-B60B-0BB5CD3C17A6}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{468FF4E0-0B58-4E68-B60B-0BB5CD3C17A6}|Domain\\Domain.csproj|d:\\new workspace\\backup\\backend\\domain\\entities\\foldermapping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{468FF4E0-0B58-4E68-B60B-0BB5CD3C17A6}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\foldermapping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.DependencyInjection.cs",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\API\\Program.DependencyInjection.cs",
+              "RelativeDocumentMoniker": "API\\Program.DependencyInjection.cs",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\API\\Program.DependencyInjection.cs",
+              "RelativeToolTip": "API\\Program.DependencyInjection.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAmwDEAAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T11:25:07.431Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Application\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\UserService.cs",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Application\\Services\\UserService.cs",
+              "RelativeToolTip": "Application\\Services\\UserService.cs",
+              "ViewState": "AgIAAJcAAAAAAAAAAAAEwNcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T10:42:07.654Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Application\\Contracts\\IUserService.cs",
+              "RelativeDocumentMoniker": "Application\\Contracts\\IUserService.cs",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Application\\Contracts\\IUserService.cs",
+              "RelativeToolTip": "Application\\Contracts\\IUserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAoAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T10:40:36.743Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DepartmentService.cs",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Application\\Services\\DepartmentService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\DepartmentService.cs",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Application\\Services\\DepartmentService.cs",
+              "RelativeToolTip": "Application\\Services\\DepartmentService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T10:40:14.525Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NotificationService.cs",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Application\\Services\\NotificationService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\NotificationService.cs",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Application\\Services\\NotificationService.cs",
+              "RelativeToolTip": "Application\\Services\\NotificationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T10:38:45.072Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "FolderMappingService.cs",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Application\\Services\\FolderMappingService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\FolderMappingService.cs",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Application\\Services\\FolderMappingService.cs",
+              "RelativeToolTip": "Application\\Services\\FolderMappingService.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T10:38:18.305Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AccessExpiryJob.cs",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Infrastructure\\BackgroundJobs\\AccessExpiryJob.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\BackgroundJobs\\AccessExpiryJob.cs",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Infrastructure\\BackgroundJobs\\AccessExpiryJob.cs",
+              "RelativeToolTip": "Infrastructure\\BackgroundJobs\\AccessExpiryJob.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T10:33:40.819Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IFolderMappingService.cs",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Application\\Interfaces\\IFolderMappingService.cs",
+              "RelativeDocumentMoniker": "Application\\Interfaces\\IFolderMappingService.cs",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Application\\Interfaces\\IFolderMappingService.cs",
+              "RelativeToolTip": "Application\\Interfaces\\IFolderMappingService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T10:32:31.085Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IDepartmentService.cs",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Application\\Interfaces\\IDepartmentService.cs",
+              "RelativeDocumentMoniker": "Application\\Interfaces\\IDepartmentService.cs",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Application\\Interfaces\\IDepartmentService.cs",
+              "RelativeToolTip": "Application\\Interfaces\\IDepartmentService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T10:32:16.622Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "IAuditService.cs",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Application\\Interfaces\\IAuditService.cs",
+              "RelativeDocumentMoniker": "Application\\Interfaces\\IAuditService.cs",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Application\\Interfaces\\IAuditService.cs",
+              "RelativeToolTip": "Application\\Interfaces\\IAuditService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T10:31:58.002Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "IAccessRequestService.cs",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Application\\Interfaces\\IAccessRequestService.cs",
+              "RelativeDocumentMoniker": "Application\\Interfaces\\IAccessRequestService.cs",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Application\\Interfaces\\IAccessRequestService.cs",
+              "RelativeToolTip": "Application\\Interfaces\\IAccessRequestService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T10:31:43.215Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AuditService.cs",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Application\\Services\\AuditService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\AuditService.cs",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Application\\Services\\AuditService.cs",
+              "RelativeToolTip": "Application\\Services\\AuditService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T10:28:16.344Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AccessReqAuditDto.cs",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Application\\DTOs\\Audit\\AccessReqAuditDto.cs",
+              "RelativeDocumentMoniker": "Application\\DTOs\\Audit\\AccessReqAuditDto.cs",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Application\\DTOs\\Audit\\AccessReqAuditDto.cs",
+              "RelativeToolTip": "Application\\DTOs\\Audit\\AccessReqAuditDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T10:10:15.551Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Application",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Application\\Application.csproj",
+              "RelativeDocumentMoniker": "Application\\Application.csproj",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Application\\Application.csproj",
+              "RelativeToolTip": "Application\\Application.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-05-19T10:09:55.753Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "IAccessRequestRepository.cs",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Domain\\Interfaces\\Repositories\\IAccessRequestRepository.cs",
+              "RelativeDocumentMoniker": "Domain\\Interfaces\\Repositories\\IAccessRequestRepository.cs",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Domain\\Interfaces\\Repositories\\IAccessRequestRepository.cs",
+              "RelativeToolTip": "Domain\\Interfaces\\Repositories\\IAccessRequestRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T10:05:01.405Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "IFolderMappingRepository.cs",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Domain\\Interfaces\\Repositories\\IFolderMappingRepository.cs",
+              "RelativeDocumentMoniker": "Domain\\Interfaces\\Repositories\\IFolderMappingRepository.cs",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Domain\\Interfaces\\Repositories\\IFolderMappingRepository.cs",
+              "RelativeToolTip": "Domain\\Interfaces\\Repositories\\IFolderMappingRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T10:05:01.373Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "IDepartmentRepository.cs",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Domain\\Interfaces\\Repositories\\IDepartmentRepository.cs",
+              "RelativeDocumentMoniker": "Domain\\Interfaces\\Repositories\\IDepartmentRepository.cs",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Domain\\Interfaces\\Repositories\\IDepartmentRepository.cs",
+              "RelativeToolTip": "Domain\\Interfaces\\Repositories\\IDepartmentRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T10:05:01.336Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "IGenericRepository.cs",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Domain\\Interfaces\\Repositories\\IGenericRepository.cs",
+              "RelativeDocumentMoniker": "Domain\\Interfaces\\Repositories\\IGenericRepository.cs",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Domain\\Interfaces\\Repositories\\IGenericRepository.cs",
+              "RelativeToolTip": "Domain\\Interfaces\\Repositories\\IGenericRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T10:05:01.304Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "AccessRequestRepository.cs",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Infrastructure\\Repository\\AccessRequestRepository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Repository\\AccessRequestRepository.cs",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Infrastructure\\Repository\\AccessRequestRepository.cs",
+              "RelativeToolTip": "Infrastructure\\Repository\\AccessRequestRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T10:05:01.273Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "DepartmentRepository.cs",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Infrastructure\\Repository\\DepartmentRepository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Repository\\DepartmentRepository.cs",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Infrastructure\\Repository\\DepartmentRepository.cs",
+              "RelativeToolTip": "Infrastructure\\Repository\\DepartmentRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T10:05:01.25Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "FolderMappingRepository.cs",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Infrastructure\\Repository\\FolderMappingRepository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Repository\\FolderMappingRepository.cs",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Infrastructure\\Repository\\FolderMappingRepository.cs",
+              "RelativeToolTip": "Infrastructure\\Repository\\FolderMappingRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T10:05:01.217Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AccessRequestService.cs",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Application\\Services\\AccessRequestService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\AccessRequestService.cs",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Application\\Services\\AccessRequestService.cs",
+              "RelativeToolTip": "Application\\Services\\AccessRequestService.cs",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAuwHAAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T10:05:01.186Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Domain",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Domain\\Domain.csproj",
+              "RelativeDocumentMoniker": "Domain\\Domain.csproj",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Domain\\Domain.csproj",
+              "RelativeToolTip": "Domain\\Domain.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-05-19T10:05:01.157Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "CreateAccessRequestDto.cs",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Application\\DTOs\\AccessRequest\\CreateAccessRequestDto.cs",
+              "RelativeDocumentMoniker": "Application\\DTOs\\AccessRequest\\CreateAccessRequestDto.cs",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Application\\DTOs\\AccessRequest\\CreateAccessRequestDto.cs",
+              "RelativeToolTip": "Application\\DTOs\\AccessRequest\\CreateAccessRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T10:05:01.131Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "AccessRequestResponseDto.cs",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Application\\DTOs\\AccessRequest\\AccessRequestResponseDto.cs",
+              "RelativeDocumentMoniker": "Application\\DTOs\\AccessRequest\\AccessRequestResponseDto.cs",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Application\\DTOs\\AccessRequest\\AccessRequestResponseDto.cs",
+              "RelativeToolTip": "Application\\DTOs\\AccessRequest\\AccessRequestResponseDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T10:05:01.101Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ApprovalActionDto.cs",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Application\\DTOs\\AccessRequest\\ApprovalActionDto.cs",
+              "RelativeDocumentMoniker": "Application\\DTOs\\AccessRequest\\ApprovalActionDto.cs",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Application\\DTOs\\AccessRequest\\ApprovalActionDto.cs",
+              "RelativeToolTip": "Application\\DTOs\\AccessRequest\\ApprovalActionDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBAAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T10:05:01.06Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "FolderMappingDto.cs",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Application\\DTOs\\FolderMapping\\FolderMappingDto.cs",
+              "RelativeDocumentMoniker": "Application\\DTOs\\FolderMapping\\FolderMappingDto.cs",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Application\\DTOs\\FolderMapping\\FolderMappingDto.cs",
+              "RelativeToolTip": "Application\\DTOs\\FolderMapping\\FolderMappingDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T10:05:01.028Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Infrastructure",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Infrastructure\\Infrastructure.csproj",
+              "RelativeDocumentMoniker": "Infrastructure\\Infrastructure.csproj",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Infrastructure\\Infrastructure.csproj",
+              "RelativeToolTip": "Infrastructure\\Infrastructure.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-05-19T10:05:00.933Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Result.cs",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Application\\Common\\Result.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Result.cs",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Application\\Common\\Result.cs",
+              "RelativeToolTip": "Application\\Common\\Result.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T10:05:00.321Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "PagedResult.cs",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Application\\Common\\PagedResult.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\PagedResult.cs",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Application\\Common\\PagedResult.cs",
+              "RelativeToolTip": "Application\\Common\\PagedResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T10:04:59.282Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "UserRole.cs",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Domain\\Enums\\UserRole.cs",
+              "RelativeDocumentMoniker": "Domain\\Enums\\UserRole.cs",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Domain\\Enums\\UserRole.cs",
+              "RelativeToolTip": "Domain\\Enums\\UserRole.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T09:41:57.36Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "FolderMapping.cs",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Domain\\Entities\\FolderMapping.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\FolderMapping.cs",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Domain\\Entities\\FolderMapping.cs",
+              "RelativeToolTip": "Domain\\Entities\\FolderMapping.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T09:24:56.036Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Department.cs",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Domain\\Entities\\Department.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\Department.cs",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Domain\\Entities\\Department.cs",
+              "RelativeToolTip": "Domain\\Entities\\Department.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T09:24:34.63Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "BaseAuditableEntity.cs",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Domain\\Entities\\BaseAuditableEntity.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\BaseAuditableEntity.cs",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Domain\\Entities\\BaseAuditableEntity.cs",
+              "RelativeToolTip": "Domain\\Entities\\BaseAuditableEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T09:24:32.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FileAccessRequest.cs",
+              "DocumentMoniker": "D:\\New Workspace\\Backup\\Backend\\Domain\\Entities\\FileAccessRequest.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\FileAccessRequest.cs",
+              "ToolTip": "D:\\New Workspace\\Backup\\Backend\\Domain\\Entities\\FileAccessRequest.cs",
+              "RelativeToolTip": "Domain\\Entities\\FileAccessRequest.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAApwFEAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T09:24:12.097Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

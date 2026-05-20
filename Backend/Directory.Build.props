@@ -1,0 +1,12 @@
+<Project>
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ArtifactsPath>$(MSBuildThisFileDirectory)Artifact</ArtifactsPath>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <AnalysisLevel>latest</AnalysisLevel>
+    <OutputPath>$(ArtifactsPath)/$(MSBuildProjectName)</OutputPath>
+    <PublishDir>$(ArtifactsPath)/$(MSBuildProjectName)</PublishDir>
+  </PropertyGroup>
+</Project>
