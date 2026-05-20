@@ -1,31 +1,27 @@
-namespace Web;
+using Serilog;
+using Web;
 
-public class Program
-{
-    public static void Main(string[] args)
-    {
-        var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args);
 
-        // Add services to the container.
-        builder.Services.AddAuthorization();
+// ─── Serilog ──────────────────────────────────────────────────────────────────
+Log.Logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(builder.Configuration)
+    .Enrich.FromLogContext()
+    .Enrich.WithMachineName()
+    .Enrich.WithEnvironmentName()
+    .CreateLogger();
 
-        // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-        builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen();
+builder.Host.UseSerilog();
 
-        var app = builder.Build();
+// ─── Services ─────────────────────────────────────────────────────────────────
+builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddWebServices(builder.Configuration);
 
-        // Configure the HTTP request pipeline.
-        if (app.Environment.IsDevelopment())
-        {
-            app.UseSwagger();
-            app.UseSwaggerUI();
-        }
+var app = builder.Build();
 
-        app.UseHttpsRedirection();
+// ─── Middleware Pipeline ───────────────────────────────────────────────────────
+app.UseWebMiddleware();
 
-        app.UseAuthorization();
+// ─── Database Migrate & Seed ──────────────────────────────────────────────────
 
-        app.Run();
-    }
-}
+app.Run();
