@@ -1,14 +1,27 @@
 import { Navigate } from "react-router-dom"
 
-import type { AppRole } from "@/features/access-workspace/types"
 import { useAuth } from "@/context/AuthContext"
-import { getDefaultRoute } from "@/features/access-workspace/utils/accessSelectors"
 
 function HomeRedirect() {
-  const { user } = useAuth()
-  const role = (user?.role as AppRole) || "User"
+  const { user, isLoading } = useAuth()
 
-  return <Navigate to={getDefaultRoute(role)} replace />
+  if (isLoading) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-background text-muted-foreground">
+        Checking session...
+      </div>
+    )
+  }
+
+  if (!user) {
+    return <Navigate to="/login" replace />
+  }
+
+  return user.role === "Admin" ? (
+    <Navigate to="/admin-dashboard" replace />
+  ) : (
+    <Navigate to="/me" replace />
+  )
 }
 
 export default HomeRedirect

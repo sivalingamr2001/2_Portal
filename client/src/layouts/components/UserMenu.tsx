@@ -1,8 +1,6 @@
 import { IconUserCircle } from "@tabler/icons-react"
 import { useEffect, useRef } from "react"
 
-import DropdownPanel from "./DropdownPanel"
-
 type UserMenuProps = {
   name: string
   onLogout: () => void
@@ -45,7 +43,7 @@ function UserMenu({
         </div>
       </button>
       {isOpen ? (
-        <DropdownPanel>
+        <>
           <button
             className="w-full rounded-xl px-3 py-2 text-left text-sm transition-colors hover:bg-accent"
             onClick={onProfile}
@@ -58,7 +56,7 @@ function UserMenu({
           >
             Logout
           </button>
-        </DropdownPanel>
+        </>
       ) : null}
     </div>
   )

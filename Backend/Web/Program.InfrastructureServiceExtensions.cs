@@ -2,7 +2,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Web.Features.Auth.Login;
 using Web.Features.Auth.Me;
+using Web.Features.AdminUsers;
 using Web.Features.Department;
+using Web.Features.FolderMappings;
 using Web.Features.Hod;
 using Web.Infrastructure.Persistence;
 using Web.Infrastructure.Repositories;
@@ -63,7 +65,9 @@ public static class InfrastructureServiceExtensions
         // 7. Caching and Business Application Layers
         services.AddMemoryCache();
         services.AddScoped<LoginService>();
+        services.AddScoped<AdminUserService>();
         services.AddScoped<DepartmentService>();
+        services.AddScoped<FolderMappingService>();
         services.AddScoped<HodService>();
         services.AddScoped<UserService>();
 

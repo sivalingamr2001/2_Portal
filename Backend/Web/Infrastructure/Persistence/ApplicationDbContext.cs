@@ -28,6 +28,7 @@ public sealed class ApplicationDbContext : DbContext
     public DbSet<AccessApproval> AccessApprovals => Set<AccessApproval>();
     public DbSet<AccessDetail> AccessDetails => Set<AccessDetail>();
     public DbSet<AuditLog> AuditLogs => Set<AuditLog>();
+    public DbSet<FolderMapping> FolderMappings => Set<FolderMapping>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

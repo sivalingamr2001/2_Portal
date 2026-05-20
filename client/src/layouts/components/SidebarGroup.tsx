@@ -1,4 +1,4 @@
-import type { NavigationSection } from "@/features/app-shell/types"
+import type { NavigationSection } from "@/types/types"
 
 import SidebarLink from "./SidebarLink"
 

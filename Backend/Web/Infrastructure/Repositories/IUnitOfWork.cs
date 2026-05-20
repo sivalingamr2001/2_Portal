@@ -15,6 +15,7 @@ public interface IUnitOfWork : IAsyncDisposable
     IEFRepository<AccessApproval> AccessApprovals { get; }
     IEFRepository<AccessDetail> AccessDetails { get; }
     IEFRepository<AuditLog> AuditLogs { get; }
+    IEFRepository<FolderMapping> FolderMappings { get; }
     IDapperRepository Dapper { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);

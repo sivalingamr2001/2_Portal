@@ -23,6 +23,7 @@ public sealed class UnitOfWork : IUnitOfWork
     private IEFRepository<AccessApproval>? _accessApprovals;
     private IEFRepository<AccessDetail>? _accessDetails;
     private IEFRepository<AuditLog>? _auditLogs;
+    private IEFRepository<FolderMapping>? _folderMappings;
 
     public UnitOfWork(
         ApplicationDbContext context,
@@ -40,6 +41,7 @@ public sealed class UnitOfWork : IUnitOfWork
     public IEFRepository<AccessApproval> AccessApprovals => _accessApprovals ??= new EfRepository<AccessApproval>(_context);
     public IEFRepository<AccessDetail> AccessDetails => _accessDetails ??= new EfRepository<AccessDetail>(_context);
     public IEFRepository<AuditLog> AuditLogs => _auditLogs ??= new EfRepository<AuditLog>(_context);
+    public IEFRepository<FolderMapping> FolderMappings => _folderMappings ??= new EfRepository<FolderMapping>(_context);
     public IDapperRepository Dapper => _dapper;
     public bool HasActiveTransaction => _transaction is not null;
 

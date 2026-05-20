@@ -1,3 +1,4 @@
+import { loginApi, meApi } from "@/Api/authApi"
 import {
   createContext,
   useContext,
@@ -15,15 +16,27 @@ export type HODDetails = {
 
 export type AuthUser = {
   userId: number
-  employeeId: number
   userName: string
-  name: string
-  email: string
-  phone: string
-  departmentId: number
-  departmentName: string
+  email?: string
+  phone?: string | number
+  departmentId?: number
+  deptId?: number
   role: string
-  departmentHod: HODDetails
+  location?: string
+  name?: string
+  employeeId?: number
+  departmentName?: string
+  departmentHod?: HODDetails
+}
+
+export type ApiLoginResponse = {
+  userId: number
+  userName: string
+  email: string | null
+  mobile: number | string
+  deptId: number
+  userRole: string
+  location?: string
 }
 
 // Data shape for the registration request
@@ -49,14 +62,24 @@ type AuthContextValue = {
   user: AuthUser | null
 }
 
-type LoginResponse = {
-  session: {
-    user: AuthUser
-  }
-}
+type LoginResponse = ApiLoginResponse
 
 export const STORAGE_KEY = "auth_session"
 const API_URL = import.meta.env.VITE_API_URL ?? "/access-portal/api"
+
+function normalizeUser(payload: ApiLoginResponse): AuthUser {
+  return {
+    userId: payload.userId,
+    userName: payload.userName,
+    email: payload.email ?? undefined,
+    phone: payload.mobile,
+    departmentId: payload.deptId,
+    deptId: payload.deptId,
+    role: payload.userRole,
+    location: payload.location,
+    name: payload.userName,
+  }
+}
 
 async function safeParseJson<T>(response: Response): Promise<T> {
   const contentType = response.headers.get("content-type")
@@ -81,6 +104,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (storedSession) {
       try {
         setUser(JSON.parse(storedSession) as AuthUser)
+        fetchUserDetails(JSON.parse(storedSession).userId)
       } catch (e) {
         localStorage.removeItem(STORAGE_KEY)
       }
@@ -88,24 +112,25 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setIsLoading(false)
   }, [])
 
+  //call meApi after login to get user details with pass userid and get data from response and set in user state and session storage
+  const fetchUserDetails = async (userId: number) => {
+    try {
+      const userDetails = await meApi(userId)
+      const sessionUser = normalizeUser(userDetails)
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(sessionUser))
+      setUser(sessionUser)
+    } catch (error) {
+      console.error("Failed to fetch user details:", error)
+    }
+  }
+
   const login = async (identifier: string, password: string) => {
     setIsLoading(true)
     try {
-      const response = await fetch(`${API_URL}/auth/login`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ identifier, password }),
-      })
-
-      if (!response.ok) {
-        throw new Error(
-          response.status === 401 ? "Invalid credentials." : "Login failed."
-        )
-      }
-
-      const payload = await safeParseJson<LoginResponse>(response)
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(payload.session.user))
-      setUser(payload.session.user)
+      const payload = await loginApi({ identifier, password }) as LoginResponse
+      const sessionUser = normalizeUser(payload)
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(sessionUser))
+      setUser(sessionUser)
     } finally {
       setIsLoading(false)
     }
@@ -125,9 +150,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         throw new Error(errorData.message || "Registration failed.")
       }
 
-      const payload = await safeParseJson<LoginResponse>(response)
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(payload.session.user))
-      setUser(payload.session.user)
+      const payload = await safeParseJson<ApiLoginResponse>(response)
+      const sessionUser = normalizeUser(payload)
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(sessionUser))
+      setUser(sessionUser)
     } finally {
       setIsLoading(false)
     }

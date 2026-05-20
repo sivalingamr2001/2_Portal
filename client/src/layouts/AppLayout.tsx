@@ -5,14 +5,12 @@ import { cn } from "@/lib/utils"
 import { AppContent } from "./AppContent"
 import { AppHeader } from "./AppHeader"
 import { AppSidebar } from "./AppSidebar"
-import UserProfileCompletionModal from "@/features/access-workspace/components/UserProfileCompletionModal"
 
 export function AppLayout() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false)
 
   return (
     <div className="h-screen w-screen overflow-auto bg-background">
-      <UserProfileCompletionModal />
       <div
         className={cn(
           "relative h-full w-full max-w-full gap-1 p-1 md:grid",

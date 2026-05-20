@@ -1,12 +1,8 @@
-import type { ReactNode } from "react"
+import { type ReactNode } from "react"
 
-type DropdownPanelProps = {
-  children: ReactNode
-}
-
-function DropdownPanel({ children }: DropdownPanelProps) {
+function DropdownPanel({ children }: { children: ReactNode }) {
   return (
-    <div className="absolute top-full right-0 z-[100] mt-2 w-72 rounded-2xl border border-border bg-popover p-2 text-popover-foreground shadow-lg">
+    <div className="absolute right-0 top-full z-30 mt-2 w-48 overflow-hidden rounded-2xl border border-border bg-card shadow-lg">
       {children}
     </div>
   )

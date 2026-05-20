@@ -4,9 +4,8 @@ import {
   IconToggleRight,
 } from "@tabler/icons-react"
 
-import type { AppRole } from "@/features/access-workspace/types"
 import { useAuth } from "@/context/AuthContext"
-import { NAVIGATION_SECTIONS } from "@/features/app-shell/utils/navigation"
+import { NAVIGATION_SECTIONS } from "@/lib/utils/navigation"
 import { useIsMobile } from "@/hooks/use-mobile"
 
 import SidebarGroup from "./components/SidebarGroup"
@@ -21,10 +20,12 @@ type AppSidebarProps = {
 function AppSidebar({ isCollapsed, onClose, onItemClick }: AppSidebarProps) {
   const isMobile = useIsMobile()
   const { user } = useAuth()
-  const role = (user?.role as AppRole) || "User"
+  const role = (user?.role as "User" | "Hod" | "Operator" | "Admin") || "User"
   const sections = NAVIGATION_SECTIONS.map((section) => ({
     ...section,
-    items: section.items.filter((item) => item.roles.includes(role)),
+    items: section.items.filter(
+      (item) => item.roles.includes(role),
+    ),
   })).filter((section) => section.items.length)
 
   return (

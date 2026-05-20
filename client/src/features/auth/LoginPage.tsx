@@ -1,38 +1,50 @@
 import { useState, type ChangeEvent, type FormEvent } from "react"
-import { Link, Navigate } from "react-router-dom"
+import { Navigate, useLocation, useNavigate } from "react-router-dom"
 
 import { Button } from "@/components/ui/button"
-import type { AppRole } from "@/features/access-workspace/types"
 import { useAuth } from "@/context/AuthContext"
-import { getDefaultRoute } from "@/features/access-workspace/utils/accessSelectors"
 
 const INPUT_CLASS =
   "w-full rounded-xl border border-input bg-background px-3 py-2.5 text-sm outline-none transition focus:border-primary"
 
 function LoginPage() {
-  const { isAuthenticated, isLoading, login, user } = useAuth()
+  const navigate = useNavigate()
+  const location = useLocation()
+  const { isAuthenticated, isLoading, login } = useAuth()
+
   const [identifier, setIdentifier] = useState("")
   const [password, setPassword] = useState("")
   const [errorMessage, setErrorMessage] = useState("")
-  const role = (user?.role as AppRole) || "User"
-  const handleIdentifierChange = (event: ChangeEvent<HTMLInputElement>) =>
+
+  const from = (location.state as { from?: { pathname: string } })?.from?.pathname || "/"
+
+  if (isAuthenticated) {
+    return <Navigate to={from} replace />
+  }
+
+  const handleIdentifierChange = (event: ChangeEvent<HTMLInputElement>) => {
     setIdentifier(event.target.value)
-  const handlePasswordChange = (event: ChangeEvent<HTMLInputElement>) =>
+    setErrorMessage("")
+  }
+
+  const handlePasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value)
+    setErrorMessage("")
+  }
+
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    setErrorMessage("")
+
     try {
       await login(identifier, password)
+      navigate(from, { replace: true })
     } catch (error) {
-      setErrorMessage(error instanceof Error ? error.message : "Login failed.")
+      setErrorMessage((error as Error).message || "Unable to sign in.")
     }
   }
 
-  if (isAuthenticated) return <Navigate to={getDefaultRoute(role)} replace />
-
   return (
-    <div className="flex h-screen items-center justify-center bg-background px-4">
+    <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <form
         className="w-full max-w-md rounded-[0.75rem] border border-border bg-card p-6 shadow-sm"
         onSubmit={handleSubmit}
@@ -44,7 +56,7 @@ function LoginPage() {
           Sign in to continue
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          Use your employee ID/Username and password from the ITSR Portal.
+          Use your employee ID or username from the ITSR Portal.
         </p>
         <div className="mt-6 grid gap-4">
           <input
@@ -66,16 +78,6 @@ function LoginPage() {
           <Button type="submit" disabled={isLoading}>
             {isLoading ? "Signing in..." : "Sign in"}
           </Button>
-
-          <p className="text-center text-sm text-muted-foreground">
-            Don't have an account?{" "}
-            <Link
-              to="/register"
-              className="font-medium text-primary hover:underline"
-            >
-              Sign up
-            </Link>
-          </p>
         </div>
       </form>
     </div>
